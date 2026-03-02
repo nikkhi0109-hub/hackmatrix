@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Breathe — A gentle mental wellness companion. No forms, no friction. Just one tap, one breath, one moment of calm.">
+    <title>Breathe 🌿 — Gentle Mental Wellness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating particles background -->
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <!-- Sticky Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">🌿 Breathe</a>
+            <div class="nav-links">
+                <a href="#breathe" class="nav-link">Breathe</a>
+                <a href="#mood" class="nav-link">Mood</a>
+                <a href="#chat" class="nav-link">Talk</a>
+                <a href="#ground" class="nav-link">Ground</a>
+                <a href="#letgo" class="nav-link">Let Go</a>
+                <a href="#rhythm" class="nav-link">Rhythm</a>
+                <a href="#sounds" class="nav-link">Sounds</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile nav overlay -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#breathe" class="mobile-nav-link">Breathe</a>
+        <a href="#mood" class="mobile-nav-link">Mood</a>
+        <a href="#chat" class="mobile-nav-link">Talk</a>
+        <a href="#ground" class="mobile-nav-link">Ground</a>
+        <a href="#letgo" class="mobile-nav-link">Let Go</a>
+        <a href="#rhythm" class="mobile-nav-link">Rhythm</a>
+        <a href="#sounds" class="mobile-nav-link">Sounds</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="section hero" id="hero">
+        <div class="hero-content fade-in">
+            <h1 class="hero-title">You don't have to try hard<br><span class="gradient-text">to feel better.</span></h1>
+            <p class="hero-subtitle">No forms. No diaries. No effort required.<br>Just one tap, one breath, one gentle
+                moment.</p>
+            <a href="#breathe" class="hero-cta">
+                <span class="cta-pulse"></span>
+                Begin with a breath
+            </a>
+        </div>
+    </section>
+
+    <!-- BREATHING SECTION -->
+    <section class="section breathing-section" id="breathe">
+        <div class="section-header fade-in">
+            <span class="section-label">Just breathe</span>
+            <h2 class="section-title">Follow the circle.</h2>
+            <p class="section-desc">No buttons to press. Just watch, breathe, and let go.</p>
+        </div>
+        <div class="breathing-container fade-in">
+            <div class="breath-ring" id="breathRing">
+                <div class="breath-ring-inner">
+                    <div class="breath-ring-glow"></div>
+                    <span class="breath-text" id="breathText">Breathe in</span>
+                    <span class="breath-timer" id="breathTimer">4</span>
+                </div>
+            </div>
+            <div class="breath-controls">
+                <div class="breath-mode-toggle">
+                    <button class="breath-mode-btn active" id="breathModeGuided" data-mode="guided">🌊 Guided</button>
+                    <button class="breath-mode-btn" id="breathModeHold" data-mode="hold">👆 Hold to Breathe</button>
+                </div>
+                <button class="btn-glass" id="breathToggle">
+                    <span id="breathToggleIcon">⏸</span> Pause
+                </button>
+                <div class="breath-cycle-info">
+                    <span id="breathCycleCount">0</span> cycles completed
+                </div>
+                <p class="breath-hold-hint" id="breathHoldHint" style="display:none;">Press and hold the circle to
+                    inhale. Release to exhale.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOOD CHECK-IN SECTION -->
+    <section class="section mood-section" id="mood">
+        <div class="section-header fade-in">
+            <span class="section-label">One tap</span>
+            <h2 class="section-title">How are you feeling?</h2>
+            <p class="section-desc">No explaining needed. Just pick one.</p>
+        </div>
+        <div class="mood-container fade-in">
+            <div class="mood-grid" id="moodGrid">
+                <button class="mood-btn" data-mood="great" id="mood-great">
+                    <span class="mood-emoji">😊</span>
+                    <span class="mood-label">Great</span>
+                </button>
+                <button class="mood-btn" data-mood="okay" id="mood-okay">
+                    <span class="mood-emoji">🙂</span>
+                    <span class="mood-label">Okay</span>
+                </button>
+                <button class="mood-btn" data-mood="meh" id="mood-meh">
+                    <span class="mood-emoji">😐</span>
+                    <span class="mood-label">Meh</span>
+                </button>
+                <button class="mood-btn" data-mood="low" id="mood-low">
+                    <span class="mood-emoji">😔</span>
+                    <span class="mood-label">Low</span>
+                </button>
+                <button class="mood-btn" data-mood="rough" id="mood-rough">
+                    <span class="mood-emoji">😢</span>
+                    <span class="mood-label">Rough</span>
+                </button>
+            </div>
+            <div class="mood-response" id="moodResponse">
+                <div class="mood-response-card glass-card" id="moodResponseCard">
+                    <p class="mood-affirmation" id="moodAffirmation"></p>
+                    <div class="mood-history">
+                        <span class="mood-history-label">Your recent check-ins</span>
+                        <div class="mood-history-dots" id="moodHistoryDots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONVERSATIONAL COMPANION -->
+    <section class="section chat-section" id="chat">
+        <div class="section-header fade-in">
+            <span class="section-label">Say anything</span>
+            <h2 class="section-title">A friend who listens.</h2>
+            <p class="section-desc">No judgment. No clinical questions. Just a gentle space to let it out.</p>
+        </div>
+        <div class="chat-container fade-in">
+            <div class="chat-window glass-card" id="chatWindow">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-message companion">
+                        <div class="chat-avatar">🌿</div>
+                        <div class="chat-bubble">
+                            <p>Hey there. No pressure to say anything specific — I'm just here. How's your day going?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <div class="chat-suggestions" id="chatSuggestions">
+                        <button class="suggestion-chip" data-suggestion="I'm feeling overwhelmed">Feeling
+                            overwhelmed</button>
+                        <button class="suggestion-chip" data-suggestion="I can't stop overthinking">Can't stop
+                            overthinking</button>
+                        <button class="suggestion-chip" data-suggestion="I just need a moment">Need a moment</button>
+                        <button class="suggestion-chip" data-suggestion="Something good happened today">Something good
+                            happened</button>
+                    </div>
+                    <form class="chat-form" id="chatForm">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Type whatever feels right..."
+                            autocomplete="off">
+                        <button type="submit" class="chat-send" id="chatSend" aria-label="Send message">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GROUNDING EXERCISE -->
+    <section class="section ground-section" id="ground">
+        <div class="section-header fade-in">
+            <span class="section-label">Come back to now</span>
+            <h2 class="section-title">5-4-3-2-1 Grounding.</h2>
+            <p class="section-desc">When your mind races, your senses can anchor you. One step at a time.</p>
+        </div>
+        <div class="ground-container fade-in">
+            <div class="ground-card glass-card" id="groundCard">
+                <div class="ground-progress" id="groundProgress">
+                    <div class="ground-step active" data-step="5">5</div>
+                    <div class="ground-step" data-step="4">4</div>
+                    <div class="ground-step" data-step="3">3</div>
+                    <div class="ground-step" data-step="2">2</div>
+                    <div class="ground-step" data-step="1">1</div>
+                </div>
+                <div class="ground-content" id="groundContent">
+                    <div class="ground-icon" id="groundIcon">👁️</div>
+                    <h3 class="ground-instruction" id="groundInstruction">Name <strong>5 things</strong> you can see.
+                    </h3>
+                    <p class="ground-hint" id="groundHint">Look around you slowly. A shadow on the wall, the color of
+                        your phone, the light in the room...</p>
+                </div>
+                <div class="ground-actions">
+                    <button class="btn-glass ground-next" id="groundNext">I've got them ✓</button>
+                    <button class="btn-glass ground-restart" id="groundRestart" style="display: none;">Start over
+                        🔄</button>
+                </div>
+                <div class="ground-complete" id="groundComplete" style="display: none;">
+                    <div class="ground-complete-icon">🌟</div>
+                    <h3>You're here. You're present.</h3>
+                    <p>Well done. You brought yourself back to this moment. That takes quiet strength.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SWIPE AWAY INTRUSIVE THOUGHTS -->
+    <section class="section letgo-section" id="letgo">
+        <div class="section-header fade-in">
+            <span class="section-label">Let it go</span>
+            <h2 class="section-title">Swipe Away the Noise.</h2>
+            <p class="section-desc">Those intrusive thoughts? They're not you. Drag them away — one by one.</p>
+        </div>
+        <div class="letgo-container fade-in">
+            <div class="letgo-arena" id="letgoArena">
+                <div class="letgo-card glass-card" id="letgoCard">
+                    <div class="letgo-card-inner">
+                        <span class="letgo-quote" id="letgoQuote">I'm not good enough.</span>
+                        <span class="letgo-hint">← Swipe or drag to dismiss →</span>
+                    </div>
+                </div>
+                <div class="letgo-particles" id="letgoParticles"></div>
+            </div>
+            <div class="letgo-stats">
+                <div class="letgo-counter">
+                    <span class="letgo-count" id="letgoCount">0</span>
+                    <span class="letgo-count-label">thoughts released</span>
+                </div>
+                <div class="letgo-message" id="letgoMessage"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RHYTHM TAPPING EXERCISE -->
+    <section class="section rhythm-section" id="rhythm">
+        <div class="section-header fade-in">
+            <span class="section-label">Find your rhythm</span>
+            <h2 class="section-title">Tap to Ground Yourself.</h2>
+            <p class="section-desc">When panic hits, rhythm anchors you. Follow the beat — your body will follow.</p>
+        </div>
+        <div class="rhythm-container fade-in">
+            <div class="rhythm-visualizer" id="rhythmVisualizer">
+                <div class="rhythm-ring-outer">
+                    <div class="rhythm-ring-middle">
+                        <button class="rhythm-tap-target" id="rhythmTapTarget" aria-label="Tap to the rhythm">
+                            <span class="rhythm-tap-text" id="rhythmTapText">Tap to Start</span>
+                            <div class="rhythm-ripples" id="rhythmRipples"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="rhythm-cue-ring" id="rhythmCueRing"></div>
+            </div>
+            <div class="rhythm-info">
+                <div class="rhythm-progress" id="rhythmProgress">
+                    <div class="rhythm-phase-label" id="rhythmPhaseLabel">Ready</div>
+                    <div class="rhythm-progress-bar">
+                        <div class="rhythm-progress-fill" id="rhythmProgressFill"></div>
+                    </div>
+                    <div class="rhythm-progress-text" id="rhythmProgressText">Tap the circle to begin</div>
+                </div>
+                <div class="rhythm-feedback" id="rhythmFeedback"></div>
+            </div>
+            <div class="rhythm-complete" id="rhythmComplete" style="display:none;">
+                <div class="rhythm-complete-icon">🫀</div>
+                <h3>You found your rhythm.</h3>
+                <p>Your heartbeat is steady. You are here. You are safe.</p>
+                <button class="btn-glass rhythm-restart" id="rhythmRestart">Try Again 🔄</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AMBIENT SOUNDS -->
+    <section class="section sounds-section" id="sounds">
+        <div class="section-header fade-in">
+            <span class="section-label">Surround yourself</span>
+            <h2 class="section-title">Ambient Sounds.</h2>
+            <p class="section-desc">Tap to fill the space around you with calm.</p>
+        </div>
+        <div class="sounds-container fade-in">
+            <div class="sounds-grid">
+                <button class="sound-card glass-card" data-sound="rain" id="sound-rain">
+                    <div class="sound-icon">🌧️</div>
+                    <div class="sound-name">Gentle Rain</div>
+                    <div class="sound-wave" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="sound-status">Tap to play</div>
+                </button>
+                <button class="sound-card glass-card" data-sound="forest" id="sound-forest">
+                    <div class="sound-icon">🌲</div>
+                    <div class="sound-name">Forest</div>
+                    <div class="sound-wave" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="sound-status">Tap to play</div>
+                </button>
+                <button class="sound-card glass-card" data-sound="ocean" id="sound-ocean">
+                    <div class="sound-icon">🌊</div>
+                    <div class="sound-name">Ocean Waves</div>
+                    <div class="sound-wave" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="sound-status">Tap to play</div>
+                </button>
+                <button class="sound-card glass-card" data-sound="night" id="sound-night">
+                    <div class="sound-icon">🌙</div>
+                    <div class="sound-name">Night Crickets</div>
+                    <div class="sound-wave" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="sound-status">Tap to play</div>
+                </button>
+                <button class="sound-card glass-card" data-sound="fire" id="sound-fire">
+                    <div class="sound-icon">🔥</div>
+                    <div class="sound-name">Crackling Fire</div>
+                    <div class="sound-wave" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="sound-status">Tap to play</div>
+                </button>
+                <button class="sound-card glass-card" data-sound="wind" id="sound-wind">
+                    <div class="sound-icon">🍃</div>
+                    <div class="sound-name">Soft Wind</div>
+                    <div class="sound-wave" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="sound-status">Tap to play</div>
+                </button>
+            </div>
+            <div class="volume-control">
+                <span class="volume-icon">🔈</span>
+                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="60">
+                <span class="volume-icon">🔊</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p class="footer-text">🌿 Breathe — You're doing better than you think.</p>
+            <p class="footer-sub">A gentle space. No data collected. No strings attached.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
